@@ -16,4 +16,4 @@ ENV KSMAIN=it.ff.dev.kafka.simple.helper.KafkaSimpleConsumerProcuderApplication
 COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
 COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
-ENTRYPOINT ["java","-cp","app:app/lib/*","${KSMAIN}"]
+ENTRYPOINT ["sh", "-c", "java -cp app:app/lib/* ${KSMAIN}"]
